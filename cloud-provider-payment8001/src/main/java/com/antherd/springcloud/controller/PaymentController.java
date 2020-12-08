@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,7 +18,7 @@ public class PaymentController {
   private PaymentService paymentService;
 
   @PostMapping(value = "/payment")
-  public CommonResult<Payment> create(Payment payment) {
+  public CommonResult<Payment> create(@RequestBody Payment payment) {
     int result = paymentService.create(payment);
     log.info("*****插入结果： " + result);
     if(result > 0) {
