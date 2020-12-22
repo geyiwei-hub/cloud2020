@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.consul.discovery.server-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.consul.discovery.server-name."
+  }
+] }
