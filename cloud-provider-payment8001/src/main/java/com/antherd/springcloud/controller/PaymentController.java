@@ -4,6 +4,7 @@ import com.antherd.springcloud.entities.CommonResult;
 import com.antherd.springcloud.entities.Payment;
 import com.antherd.springcloud.service.PaymentService;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -65,6 +66,12 @@ public class PaymentController {
 
   @GetMapping(value = "/payment/lb")
   public String getPaymentLB() {
+    return serverPort;
+  }
+
+  @GetMapping(value = "/payment/feign/timeout")
+  public String paymentFeignTimeout() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
     return serverPort;
   }
 }
