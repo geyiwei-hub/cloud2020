@@ -15,3 +15,4 @@ spring:
 
 # ${spring.application.name}-${spring.profile.active}.${spring.cloud.config.file-extension}
 # nacos-config-client-dev.yaml
+# nacos-config-client-test.yaml
