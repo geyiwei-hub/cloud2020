@@ -3,6 +3,7 @@ package com.antherd.springcloud.alibaba.controller;
 import cn.hutool.http.HttpStatus;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.antherd.springcloud.alibaba.handler.CustomerBlockHandler;
 import com.antherd.springcloud.entities.CommonResult;
 import com.antherd.springcloud.entities.Payment;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -27,5 +28,13 @@ public class RateLimitController {
   @SentinelResource(value = "byUrl")
   public CommonResult byUrl() {
     return new CommonResult(HttpStatus.HTTP_OK, "按url限流测试OK", new Payment(2020L, "serial002"));
+  }
+
+  @GetMapping("/rateLimit/customerBlockHandler")
+  @SentinelResource(value = "customerBlockHandler",
+      blockHandlerClass = CustomerBlockHandler.class,
+      blockHandler = "handlerException2")
+  public CommonResult customerBlockHandler() {
+    return new CommonResult(HttpStatus.HTTP_OK, "按客户自定义", new Payment(2020L, "serial003"));
   }
 }
