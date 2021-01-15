@@ -20,7 +20,7 @@ public class FlowLimitController {
   }
 
   @GetMapping("/testHotKey")
-  @SentinelResource(value = "testHotKey", blockHandler = "dealTestHotKey") // value：sentinel热点key资源名
+  @SentinelResource(value = "testHotKey", blockHandler = "dealTestHotKey") // value：sentinel热点key资源名，blockHandler不会处理RuntimeException异常
   public String testHotKey(@RequestParam(value = "p1", required = false) String p1,
       @RequestParam(value = "p2", required = false) String p2) {
     return "***** testHotKey";
