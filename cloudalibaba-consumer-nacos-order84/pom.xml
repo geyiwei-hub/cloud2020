@@ -12,6 +12,11 @@
   <artifactId>cloudalibaba-consumer-nacos-order84</artifactId>
 
   <dependencies>
+    <!-- SpringCloud OpenFeign -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
     <!-- SpringCloud alibaba sentinel -->
     <dependency>
       <groupId>com.alibaba.cloud</groupId>
